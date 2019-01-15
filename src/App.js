@@ -24,8 +24,15 @@ class App extends Component {
             }
         ]
     }
+
+    // created as an arrow function so that it's ref can be passed to the button as a component prop
+    removeContact = (contact) => {
+        // not sure not using a concise syntax inside filter() did not work
+        this.setState((currentState) => ({contacts :currentState.contacts.filter((current_contact) => {return current_contact.id !== contact.id})}))
+    }
+
   render() {
-    return <div><ContactList contacts={this.state.contacts}/></div>
+      return <div><ContactList contacts={this.state.contacts} remove_contact={this.removeContact} /></div>
   }
 }
 
