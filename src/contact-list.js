@@ -1,4 +1,6 @@
 import React from 'react';
+// this was preceded by running `npm install --save prop-types` on the CLI
+import PropTypes from 'prop-types';
 
 function ContactList (props) {
     return (
@@ -19,6 +21,12 @@ function ContactList (props) {
             }
         </ol>
     )
+}
+
+// prop-types warnings are displayed in the browser console (not app CLI)
+ContactList.propTypes = {
+    contacts: PropTypes.array.isRequired,
+    remove_contact: PropTypes.func.isRequired,
 }
 
 export default ContactList
